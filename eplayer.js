@@ -170,6 +170,7 @@ class EPlayer {
 	}
 
 	stop() {
+		this.#playerAudio.pause();
 		this.#playerPlay.dataset.playing = "false";
 		this.#playerIconPause.classList.add("player-hidden");
 		this.#playerIconPlay.classList.remove("player-hidden");
@@ -188,7 +189,7 @@ class EPlayer {
 		this.#playerProgress.value = '0';
 		this.#progressUpdate();
 		this.#setTimes();
-		console.log(this.#playerProgress.value);
+		// console.log(this.#playerProgress.value);
 	}
 
 	#progressUpdate() {
