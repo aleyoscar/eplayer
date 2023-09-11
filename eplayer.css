@@ -62,7 +62,9 @@
 
 .icon-container {
 	fill: transparent;
+	height: calc(var(--eplayer-play-height) + var(--eplayer-play-padding) * 2);
 	stroke: none;
+	width: calc(var(--eplayer-play-height) + var(--eplayer-play-padding) * 2);
 }
 
 .player-play-btn svg {
