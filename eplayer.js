@@ -175,7 +175,7 @@ class EPlayer {
 		this.#playerIconPlay.classList.remove("player-hidden");
 		this.#playerProgress.value = '0';
 		this.#playerAudio.currentTime = 0;
-		this.#playerAudio.duration = this.playerAudio.duration;
+		this.#playerAudio.duration = this.#playerAudio.duration;
 	}
 
 	load(file, type) {
