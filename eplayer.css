@@ -10,6 +10,7 @@
 	--eplayer-play-background-color: transparent;
 	--eplayer-play-background-color-hover: transparent;
 	--eplayer-play-height: 36px;
+	--eplayer-play-padding: 4px;
 
 	--eplayer-primary-color: #56B6C2;
 	--eplayer-primary-color-hover: #44aebb;
@@ -51,6 +52,7 @@
 	display: flex;
 	height: var(--eplayer-play-height);
 	justify-content: center;
+	padding: var(--eplayer-play-padding);
 	width: var(--eplayer-play-height);
 }
 
