@@ -1,11 +1,23 @@
 :root {
-	--player-color-background: white;
-	--player-padding: 16px;
-	--player-radius: 8px;
-	--player-controls-size: 36px;
-	--player-color-primary: #1ad1ff;
-	--player-color-button-background-hover: #d4d4d4;
-	--player-color-primary-hover: #16aed4;
+	--eplayer-padding: 16px;
+	--eplayer-radius: 8px;
+	--eplayer-controls-height: 36px;
+	--eplayer-progress-height: 8px;
+	--eplayer-progress-button-height: 20px;
+	--eplayer-progress-button-border: 2px;
+	--eplayer-progress-button-radius: 50%;
+	--eplayer-progress-radius: 16px;
+
+	--eplayer-color-background: #FFFFFF;
+	--eplayer-color-primary: #56B6C2;
+	--eplayer-color-primary-hover: #3D9DA9;
+	--eplayer-color-button-background: transparent;
+	--eplayer-color-button-background-hover: transparent;
+	--eplayer-color-progress: var(--eplayer-color-primary);
+	--eplayer-color-progress-background: #D6DBDB;
+	--eplayer-color-progress-button-background: var(--eplayer-color-primary);
+	--eplayer-color-progress-button-background-hover: var(--eplayer-color-primary-hover);
+	--eplayer-color-progress-button-border: var(--eplayer-color-background);
 }
 
 .player-hidden {
@@ -13,9 +25,9 @@
 }
 
 .player {
-	background: var(--player-color-background);
-	border-radius: var(--player-radius);
-	padding: var(--player-padding);
+	background: var(--eplayer-color-background);
+	border-radius: var(--eplayer-radius);
+	padding: var(--eplayer-padding);
 }
 
 .player-controls {
@@ -25,13 +37,17 @@
 
 .player-play-btn {
 	align-items: center;
-	background: transparent;
+	background: var(--eplayer-color-button-background);
 	border: none;
 	cursor: pointer;
 	display: flex;
-	height: var(--player-controls-size);
+	height: var(--eplayer-controls-height);
 	justify-content: center;
-	width: var(--player-controls-size);
+	width: var(--eplayer-controls-height);
+}
+
+.player-play-btn:hover {
+	fill: var(--eplayer-color-button-background-hover);
 }
 
 .icon-container {
@@ -39,21 +55,17 @@
 	stroke: none;
 }
 
-.player-play-btn:hover {
-	fill: var(--player-color-background-button-hover);
-}
-
 .player-play-btn svg {
-	color: var(--player-color-primary);
+	color: var(--eplayer-color-primary);
 	display: block;
-	height: var(--player-controls-size);
-	left: 0.5px;
+	height: var(--eplayer-controls-height);
+	/* left: 0.5px; */
 	position: relative;
-	width: var(--player-controls-size);
+	width: var(--eplayer-controls-height);
 }
 
 .player-play-btn:hover svg {
-	color: var(--player-color-primary-hover);
+	color: var(--eplayer-color-primary-hover);
 }
 
 .player-timeline {
@@ -65,29 +77,77 @@
 }
 
 .player-progress {
-	background: #a3a3a3;
+	background-color: var(--eplayer-color-progress-background);
+	border-radius: var(--eplayer-progress-radius);
+	cursor: pointer;
+	height: var(--eplayer-progress-height);
+	outline: none;
+	-webkit-appearance: none;
+	width: 100%;
+	/* background: var(--eplayer-color-progress-background);
 	display: flex;
-	height: 6px;
+	cursor: pointer;
+	height: var(--eplayer-progress-height);
 	postion: relative;
-	border-radius: 25px;
+	border-radius: calc(4 * var(--eplayer-progress-height));
 	margin: 0 5px;
 	flex: 10;
 	flex-basis: 100%;
-	overflow: hidden;
+	overflow: visible; */
 }
 
-.player-progress-filled {
-	height: 6px;
-	background: #0e0e0e;
+.player-progress::-webkite-slider-thumb {
+	appearance: none;
+	background-color: var(--eplayer-color-progress-button-background);
+	border-radius: var(--eplayer-progress-button-radius);
+	border: var(--eplayer-progress-button-border) solid var(--eplayer-color-progress-button-border);
+	cusror: pointer;
+	height: var(--eplayer-progress-button-height);
+	-webkit-appearance: none;
+	width: var(--eplayer-progress-button-height);
+
+}
+
+.player-progress::-moz-range-thumb {
+	background-color: var(--eplayer-color-progress-button-background);
+	border-radius: var(--eplayer-progress-button-radius);
+	border: var(--eplayer-progress-button-border) solid var(--eplayer-color-progress-button-border);
+	cursor: pointer;
+	height: var(--eplayer-progress-button-height);
+	width: var(--eplayer-progress-button-height);
+}
+
+/* .player-progress-filled {
+	height: var(--eplayer-progress-height);
+	background: var(--eplayer-color-progress);
 	flex: 0;
 	flex-basis: 0%;
-	border-radius: 25px;
+	border-radius: calc(4 * var(--eplayer-progress-height));
+	overflow: visible;
+	position: relative;
 }
+
+.player-progress-button {
+	background-color: var(--eplayer-color-progress-button-background);
+	border: var(--eplayer-progress-button-border) solid var(--eplayer-color-progress-button-border);
+	border-radius: 50%;
+	cursor: pointer;
+	height: var(--eplayer-progress-button-height);
+	position: absolute;
+	right: calc(var(--eplayer-progress-button-height) * -0.5);
+	top: calc((var(--eplayer-progress-button-height) - var(--eplayer-progress-height)) * -0.5);
+	width: var(--eplayer-progress-button-height);
+}
+
+.player-progress-button:hover,
+.player-progress-button:active {
+	background-color: var(--eplayer-color-progress-button-background-hover);
+} */
 
 .player-time {
-	padding: 2px 5px;
+	padding: 2px 8px;
 }
-
+/*
 .player-volume-container {
 	width: 15%;
 }
@@ -182,4 +242,4 @@
 
 .player-volume:focus::-ms-fill-upper {
 	background: #38bdf8;
-}
+}*/

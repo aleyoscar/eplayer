@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>ePlayer</title>
 <link rel="stylesheet" href="/eplayer.css" />
 </head>
+<style>
+	* {
+		box-sizing: border-box;
+		margin: 0; padding: 0;
+	}
+
+	html {
+		background-color: #56b6c2;
+		font-family: sans-serif;
+		height: 100%;
+	}
+
+	body {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		min-height: 100%;
+		justify-content: center;
+		width: 100%;
+	}
+
+	h1 {
+		color: white;
+		text-align: center;
+	}
+
+	.eplayer {
+		max-width: 500px;
+		width: 100%;
+	}
+</style>
 <body>
 
     <h1>ePlayer</h1>
@@ -11,7 +43,11 @@
 
 <script src="/eplayer.js"></script>
 <script>
-    const player = new EmetPlayer();
+	document.addEventListener('DOMContentLoaded', (event) => {
+    	const player = new EPlayer();
+		console.log(player);
+		player.load('/sample.mp3', 'audio/mp3');
+	});
 </script>
 </body>
 </html>
