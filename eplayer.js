@@ -92,7 +92,13 @@ class EmetPlayer {
 		this.playerTrack = this.playerContext.createMediaElementSource(this.playerAudio);
 
 		// EVENT LISTENERS
-		this.playerPlay.addEventListener("click", playPause);
+		this.playerPlay.addEventListener("click", this.playPause);
+		// Update progress bar and time values as audio plays
+		this.playerAudio.addEventListener("timeupdate", () => {
+			this.progressUpdate();
+			this.setTimes();
+		});
+
 	}
 
 	playPause() {
@@ -116,5 +122,15 @@ class EmetPlayer {
 			this.playerIconPause.classList.add("player-hidden");
 			this.playerIconPlay.classList.remove("player-hidden");
 		}
+	}
+
+	#progressUpdate() {
+		this.playerTimeCurrent.textContent = new Date(this.playerAudio.currentTime * 1000).toISOString().substr(11, 8);
+		this.playerTimeDuration.textContent = new Date(this.playerAudio.duration * 1000).toISOString().substr(11, 8);
+	}
+
+	#setTimes() {
+		const percent = (this.playerAudio.currentTime / this.playerAudio.duration) * 100;
+		this.playerProgressFilled.style.flexBasis = `${percent}%`;
 	}
 }
