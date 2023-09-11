@@ -91,6 +91,15 @@ class EmetPlayer {
 		this.playerContext = new AudioContext();
 		this.playerTrack = this.playerContext.createMediaElementSource(this.playerAudio);
 
+		// Bridge the gap between gainNode and AudioContext so we can manipulate volume (gain)
+		this.playerGain = this.playerContext.createGain();
+		
+		this.playerVolume.addEventListener("change", () => {
+			this.playerGain.gain.value = this.playerVolume.value;
+		});
+		
+		this.playerTrac.connect(this.playerGain).connect(this.playerContext.destination);
+
 		// EVENT LISTENERS
 		this.playerPlay.addEventListener("click", this.playPause);
 		// Update progress bar and time values as audio plays
