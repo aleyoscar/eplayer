@@ -100,6 +100,9 @@ class EmetPlayer {
 		
 		this.playerTrac.connect(this.playerGain).connect(this.playerContext.destination);
 
+		// Scrub player timeline to skip forward and back on click for easier UX
+		this.playerMouseDown = false;
+
 		// EVENT LISTENERS
 		this.playerPlay.addEventListener("click", this.playPause);
 		// Update progress bar and time values as audio plays
@@ -107,7 +110,11 @@ class EmetPlayer {
 			this.progressUpdate();
 			this.setTimes();
 		});
-
+		this.playerAudio.addEventListener("ended", this.stop);
+		this.playerProgress.addEventListener("click", this.scrub);
+		this.playerProgress.addEventListener("mousemove", (e) => this.playerMouseDown && scrub(e));
+		this.playerProgress.addEventListener("mousedown", () => (this.playerMouseDown = true));
+		this.playerProgress.addEventListener("mouseup", () => (this.playerMouseDown = false));
 	}
 
 	playPause() {
@@ -133,6 +140,15 @@ class EmetPlayer {
 		}
 	}
 
+	stop() {
+		this.playerPlay.dataset.playing = "false";
+		this.playerIconPause.classList.add("player-hidden");
+		this.playerIconPlay.classList.remove("player-hidden");
+		this.playerProgressFilled.style.flexBasis = "0%";
+		this.playerAudio.currentTime = 0;
+		this.playerAudio.duration = this.playerAudio.duration;
+	}
+
 	#progressUpdate() {
 		this.playerTimeCurrent.textContent = new Date(this.playerAudio.currentTime * 1000).toISOString().substr(11, 8);
 		this.playerTimeDuration.textContent = new Date(this.playerAudio.duration * 1000).toISOString().substr(11, 8);
@@ -141,5 +157,10 @@ class EmetPlayer {
 	#setTimes() {
 		const percent = (this.playerAudio.currentTime / this.playerAudio.duration) * 100;
 		this.playerProgressFilled.style.flexBasis = `${percent}%`;
+	}
+
+	#scrub(e) {
+		const scrubTime = (e.offsetX / this.playerProgress.offsetWidth) * this.playerAudio.duration;
+		this.playerAudio.currentTime = scrubTime;
 	}
 }
