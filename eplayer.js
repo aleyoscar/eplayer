@@ -155,6 +155,20 @@ class EPlayer {
 		}
 	}
 
+	play() {
+		this.#playerAudio.play();
+		this.#playerPlay.dataset.playing = "true";
+		this.#playerIconPlay.classList.add("player-hidden");
+		this.#playerIconPause.classList.remove("player-hidden");
+	}
+
+	pause() {
+		this.#playerAudio.pause();
+		this.#playerPlay.dataset.playing = "false";
+		this.#playerIconPause.classList.add("player-hidden");
+		this.#playerIconPlay.classList.remove("player-hidden");
+	}
+
 	stop() {
 		this.#playerPlay.dataset.playing = "false";
 		this.#playerIconPause.classList.add("player-hidden");
