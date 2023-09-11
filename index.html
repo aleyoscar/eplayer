@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ePlayer</title>
-<link rel="stylesheet" href="/eplayer.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>ePlayer</title>
+	<link rel="stylesheet" href="/eplayer.css" />
 </head>
 <style>
 	* {
@@ -21,8 +23,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: 32px;
-		min-height: 100%;
 		justify-content: center;
+		min-height: 100%;
+		padding: 32px;
 		width: 100%;
 	}
 
@@ -45,7 +48,6 @@
 <script>
 	document.addEventListener('DOMContentLoaded', (event) => {
     	const player = new EPlayer();
-		console.log(player);
 		player.load('/sample.mp3', 'audio/mp3');
 	});
 </script>

@@ -59,6 +59,9 @@ class EPlayer {
 		this.#playerProgress.max = '100';
 		this.#playerProgress.step = '1';
 		this.#playerProgress.value = '0';
+		this.#playerProgress.style.setProperty('--value', this.#playerProgress.value);
+		this.#playerProgress.style.setProperty('--min', this.#playerProgress.min);
+		this.#playerProgress.style.setProperty('--max', this.#playerProgress.max);
 
 		// DURATION
 		this.#playerTimeDuration.classList.add('player-time');
@@ -111,7 +114,7 @@ class EPlayer {
 		this.#playerPlay.addEventListener("click", this.playPause.bind(this));
 
 		// Update progress bar and time values as audio plays
-		this.#playerAudio.addEventListener("timeupdate", () => {
+		this.#playerAudio.addEventListener("timeupdate", (e) => {
 			if(!this.#playerMousedown) {
 				this.#progressUpdate();
 				this.#setTimes();
@@ -122,6 +125,7 @@ class EPlayer {
 		this.#playerProgress.addEventListener("change", this.#scrub.bind(this));
 		this.#playerProgress.addEventListener("mousedown", () => (this.#playerMousedown = true));
 		this.#playerProgress.addEventListener("mouseup", () => (this.#playerMousedown = false));
+		this.#playerProgress.addEventListener('input', (e) => this.#playerProgress.style.setProperty('--value', e.target.value));
 
 		// this.#playerVolume.addEventListener("change", () => {
 		// 	// this.playerGain.gain.value = this.playerVolume.value;
@@ -176,6 +180,7 @@ class EPlayer {
 	#progressUpdate() {
 		const percent = (this.#playerAudio.currentTime / this.#playerAudio.duration) * 100;
 		this.#playerProgress.value = percent ? percent : '0';
+		this.#playerProgress.style.setProperty('--value', this.#playerProgress.value);
 	}
 
 	#setTimes() {
