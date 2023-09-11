@@ -55,7 +55,7 @@
 }
 
 .player-play-btn:hover {
-	fill: var(--eplayer-play-background-color-hover);
+	background: var(--eplayer-play-background-color-hover);
 }
 
 .icon-container {
