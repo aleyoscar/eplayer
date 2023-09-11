@@ -8,9 +8,10 @@
 	--eplayer-padding: 12px;
 
 	--eplayer-play-background-color: transparent;
-	--eplayer-play-background-color-hover: #D6DBDB;
+	--eplayer-play-background-color-hover: transparent;
+	--eplayer-play-border-radius: 12px;
 	--eplayer-play-height: 36px;
-	--eplayer-play-padding: 4px;
+	--eplayer-play-padding: 0px;
 
 	--eplayer-primary-color: #56B6C2;
 	--eplayer-primary-color-hover: #44aebb;
@@ -48,28 +49,35 @@
 	align-items: center;
 	background: var(--eplayer-play-background-color);
 	border: none;
+	border-radius: var(--eplayer-play-border-radius);
 	cursor: pointer;
 	display: flex;
-	height: var(--eplayer-play-height);
+	height: calc(var(--eplayer-play-height) + var(--eplayer-play-padding) * 2);
 	justify-content: center;
-	width: var(--eplayer-play-height);
+	padding: var(--eplayer-play-padding);
+	width: calc(var(--eplayer-play-height) + var(--eplayer-play-padding) * 2);
 }
 
 .player-play-btn:hover {
 	background: var(--eplayer-play-background-color-hover);
 }
 
+.player-icon {
+	height: 100%;
+	width: 100%;
+}
+
 .icon-container {
-	fill: var(--eplayer-play-background-color-hover);
+	fill: transparent;
 	stroke: none;
 }
 
 .player-play-btn svg {
 	color: var(--eplayer-primary-color);
 	display: block;
-	height: var(--eplayer-play-height);
+	height: 100%;
 	position: relative;
-	width: var(--eplayer-play-height);
+	width: 100%;
 }
 
 .player-play-btn:hover svg {

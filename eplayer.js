@@ -32,10 +32,12 @@ class EPlayer {
 
 		// PLAY ICON
 		this.#playerIconPlay.classList.add('player-icon-play');
+		this.#playerIconPlay.classList.add('player-icon');
 		this.#playerIconPlay.innerHTML = '<svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>play</title><polygon class="icon-play" fill="currentColor" points="19.05 12 6 3.36 6 20.64 19.05 12"/><rect class="icon-container" width="24" height="24"/></svg>';
 
 		// PAUSE ICON
 		this.#playerIconPause.classList.add('player-icon-pause');
+		this.#playerIconPause.classList.add('player-icon');
 		this.#playerIconPause.classList.add('player-hidden');
 		this.#playerIconPause.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>pause</title><g><rect class="icon-pause" fill="currentColor" x="6" y="3.26" width="4" height="17.48"/><rect class="icon-pause" fill="currentColor" x="14" y="3.26" width="4" height="17.48"/></g><rect class="icon-container" width="24" height="24"/></svg>';
 
