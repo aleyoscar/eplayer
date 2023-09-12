@@ -1,0 +1,9 @@
+---
+deployment:
+    tasks:
+        - export DEPLOYPATH=/home/aleyosca/public_html/eplayer/
+        - /bin/cp index.html $DEPLOYPATH
+        - /bin/cp favicon.ico $DEPLOYPATH
+        - /bin/cp eplayer.js $DEPLOYPATH
+        - /bin/cp eplayer.css $DEPLOYPATH
+        - /bin/cp sample.mp3 $DEPLOYPATH
