@@ -6,6 +6,7 @@ deployment:
         - /bin/rsync -a ${REPOPATH}index.html ${DEPLOYPATH}
         - /bin/rsync -a ${REPOPATH}eplayer.css ${DEPLOYPATH}
         - /bin/rsync -a ${REPOPATH}eplayer.js ${DEPLOYPATH}
+        - /bin/rsync -a ${REPOPATH}sample.mp3 ${DEPLOYPATH}
         - /bin/chmod 755 $DEPLOYPATH
         - /bin/find $DEPLOYPATH -type d -exec /bin/chmod 755 '{}' \;
         - /bin/find $DEPLOYPATH -type f -exec /bin/chmod 644 '{}' \;
