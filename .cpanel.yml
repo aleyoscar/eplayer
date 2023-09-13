@@ -2,8 +2,10 @@
 deployment:
     tasks:
         - export DEPLOYPATH=/home/aleyosca/public_html/eplayer/
-        - /bin/cp index.html $DEPLOYPATH
-        - /bin/cp favicon.ico $DEPLOYPATH
-        - /bin/cp eplayer.js $DEPLOYPATH
-        - /bin/cp eplayer.css $DEPLOYPATH
-        - /bin/cp sample.mp3 $DEPLOYPATH
+        - export REPOPATH=/home/aleyosca/git/eplayer/
+        - /bin/rsync -a ${REPOPATH}index.html ${DEPLOYPATH}
+        - /bin/rsync -a ${REPOPATH}eplayer.css ${DEPLOYPATH}
+        - /bin/rsync -a ${REPOPATH}eplayer.js ${DEPLOYPATH}
+        - /bin/chmod 755 $DEPLOYPATH
+        - /bin/find $DEPLOYPATH -type d -exec /bin/chmod 755 '{}' \;
+        - /bin/find $DEPLOYPATH -type f -exec /bin/chmod 644 '{}' \;
