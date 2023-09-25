@@ -1,3 +1,10 @@
+ICONS = {
+	"play": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eplayer-icon eplayer-icon-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>',
+	"pause": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eplayer-icon eplayer-icon-pause"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>',
+	"rewind": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eplayer-icon eplayer-icon-rewind"><polygon points="11 19 2 12 11 5 11 19"></polygon><polygon points="22 19 13 12 22 5 22 19"></polygon></svg>',
+	"forward": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eplayer-icon eplayer-icon-forward"><polygon points="13 19 22 12 13 5 13 19"></polygon><polygon points="2 19 11 12 2 5 2 19"></polygon></svg>'
+}
+
 class EPlayer {
 
 	#player = document.createElement('div');
@@ -33,13 +40,13 @@ class EPlayer {
 		// PLAY ICON
 		this.#playerIconPlay.classList.add('player-icon-play');
 		this.#playerIconPlay.classList.add('player-icon');
-		this.#playerIconPlay.innerHTML = '<svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>play</title><polygon class="icon-play" fill="currentColor" points="19.05 12 6 3.36 6 20.64 19.05 12"/><rect class="icon-container" width="24" height="24"/></svg>';
+		this.#playerIconPlay.innerHTML = ICONS['play'];
 
 		// PAUSE ICON
 		this.#playerIconPause.classList.add('player-icon-pause');
 		this.#playerIconPause.classList.add('player-icon');
 		this.#playerIconPause.classList.add('player-hidden');
-		this.#playerIconPause.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>pause</title><g><rect class="icon-pause" fill="currentColor" x="6" y="3.26" width="4" height="17.48"/><rect class="icon-pause" fill="currentColor" x="14" y="3.26" width="4" height="17.48"/></g><rect class="icon-container" width="24" height="24"/></svg>';
+		this.#playerIconPause.innerHTML = ICONS['pause'];
 
 		// TIMELINE
 		this.#playerTimeline.classList.add('player-timeline');

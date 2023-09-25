@@ -76,6 +76,8 @@ Available variables:
 | --eplayer-background-color				| Player wrapper background color				| #FFFFFF			|
 | --eplayer-primary-color					| Player primary color							| #56B6C2			|
 | --eplayer-primary-color-hover				| Player primary color on hover					| #44AEBB			|
+| --eplayer-primary-fill-color				| Player primary fill color for icons			| #56B6C2			|
+| --eplayer-primary-fill-color-hover		| Player primary fill color for icons on hover	| #44AEBB			|
 | --eplayer-padding							| Player wrapper padding						| 12px				|
 | --eplayer-font							| Font for timestamp							| monospace			|
 | --eplayer-font-color						| Timestamp font color							| #849294			|

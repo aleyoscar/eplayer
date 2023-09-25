@@ -10,11 +10,14 @@
 	--eplayer-play-background-color: transparent;
 	--eplayer-play-background-color-hover: transparent;
 	--eplayer-play-border-radius: 12px;
-	--eplayer-play-height: 36px;
+	--eplayer-play-height: 24px;
 	--eplayer-play-padding: 0px;
 
 	--eplayer-primary-color: #56B6C2;
 	--eplayer-primary-color-hover: #44aebb;
+
+	--eplayer-primary-fill-color: var(--eplayer-primary-color);
+	--eplayer-primary-fill-color-hover: var(--eplayer-primary-color-hover);
 
 	--eplayer-progress-background-color: #D6DBDB;
 	--eplayer-progress-button-color: var(--eplayer-primary-color);
@@ -75,6 +78,7 @@
 .player-play-btn svg {
 	color: var(--eplayer-primary-color);
 	display: block;
+	fill: var(--eplayer-primary-fill-color);
 	height: 100%;
 	position: relative;
 	width: 100%;
@@ -82,6 +86,7 @@
 
 .player-play-btn:hover svg {
 	color: var(--eplayer-primary-color-hover);
+	fill: var(--eplayer-primary-fill-color-hover);
 }
 
 .player-timeline {
