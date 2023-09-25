@@ -1,17 +1,19 @@
 :root {
 	--eplayer-background-color: #FFFFFF;
 
+	--eplayer-controls-gap: 4px;
+
 	--eplayer-font: monospace;
 	--eplayer-font-color: #849294;
 	--eplayer-font-size: 0.8rem;
 
 	--eplayer-padding: 12px;
 
-	--eplayer-play-background-color: transparent;
-	--eplayer-play-background-color-hover: transparent;
-	--eplayer-play-border-radius: 12px;
-	--eplayer-play-height: 24px;
-	--eplayer-play-padding: 0px;
+	--eplayer-button-background-color: transparent;
+	--eplayer-button-background-color-hover: transparent;
+	--eplayer-button-border-radius: 12px;
+	--eplayer-button-height: 24px;
+	--eplayer-button-padding: 0px;
 
 	--eplayer-primary-color: #56B6C2;
 	--eplayer-primary-color-hover: #44aebb;
@@ -46,23 +48,28 @@
 .player-controls {
 	align-items: center;
 	display: flex;
+	gap: var(--eplayer-controls-gap);
 }
 
-.player-play-btn {
+.player-icon-btn {
 	align-items: center;
-	background: var(--eplayer-play-background-color);
+	background: var(--eplayer-button-background-color);
 	border: none;
-	border-radius: var(--eplayer-play-border-radius);
 	cursor: pointer;
 	display: flex;
-	height: calc(var(--eplayer-play-height) + var(--eplayer-play-padding) * 2);
+	height: calc(var(--eplayer-button-height) + var(--eplayer-button-padding) * 2);
 	justify-content: center;
-	padding: var(--eplayer-play-padding);
-	width: calc(var(--eplayer-play-height) + var(--eplayer-play-padding) * 2);
+	padding: var(--eplayer-button-padding);
+	width: calc(var(--eplayer-button-height) + var(--eplayer-button-padding) * 2);
 }
 
-.player-play-btn:hover {
-	background: var(--eplayer-play-background-color-hover);
+.player-icon-btn:hover {
+	background: var(--eplayer-button-background-color-hover);
+	border-radius: var(--eplayer-button-border-radius);
+}
+
+.player-icon-btn * {
+	pointer-events: none;
 }
 
 .player-icon {
@@ -70,12 +77,7 @@
 	width: 100%;
 }
 
-.icon-container {
-	fill: transparent;
-	stroke: none;
-}
-
-.player-play-btn svg {
+.player-icon-btn svg {
 	color: var(--eplayer-primary-color);
 	display: block;
 	fill: var(--eplayer-primary-fill-color);
@@ -84,7 +86,7 @@
 	width: 100%;
 }
 
-.player-play-btn:hover svg {
+.player-icon-btn:hover svg {
 	color: var(--eplayer-primary-color-hover);
 	fill: var(--eplayer-primary-fill-color-hover);
 }

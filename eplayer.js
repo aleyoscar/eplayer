@@ -12,15 +12,14 @@ class EPlayer {
 	#playerPlay = document.createElement('button');
 	#playerIconPlay = document.createElement('div');
 	#playerIconPause = document.createElement('div');
+	#playerRewind = document.createElement('div');
+	#playerIconRewind = document.createElement('div');
+	#playerForward = document.createElement('div');
+	#playerIconForward = document.createElement('div');
 	#playerTimeline = document.createElement('div');
 	#playerTimeCurrent = document.createElement('span');
-	// #playerProgressContainer = document.createElement('div');
 	#playerProgress = document.createElement('input');
-	// #playerProgressFilled = document.createElement('div');
-	// #playerProgressButton = document.createElement('div');
 	#playerTimeDuration = document.createElement('span');
-	// #playerVolumeContainer = document.createElement('div');
-	// #playerVolume = document.createElement('input');
 	#playerAudio = document.createElement('audio');
 	#playerMousedown = false;
 
@@ -34,6 +33,7 @@ class EPlayer {
 
 		// PLAY BUTTON
 		this.#playerPlay.classList.add('player-play-btn');
+		this.#playerPlay.classList.add('player-icon-btn');
 		this.#playerPlay.role = 'button';
 		this.#playerPlay.dataset.playing = 'false';
 
@@ -48,6 +48,22 @@ class EPlayer {
 		this.#playerIconPause.classList.add('player-hidden');
 		this.#playerIconPause.innerHTML = ICONS['pause'];
 
+		// REWIND BUTTON
+		this.#playerRewind.classList.add('player-rewind-btn');
+		this.#playerRewind.classList.add('player-seek-btn');
+		this.#playerRewind.classList.add('player-icon-btn');
+		this.#playerRewind.dataset.seek = '-10';
+		this.#playerIconRewind.classList.add('player-icon');
+		this.#playerIconRewind.innerHTML = ICONS['rewind'];
+
+		// FORWARD BUTTON
+		this.#playerForward.classList.add('player-forward-btn');
+		this.#playerForward.classList.add('player-seek-btn');
+		this.#playerForward.classList.add('player-icon-btn');
+		this.#playerForward.dataset.seek = '10';
+		this.#playerIconForward.classList.add('player-icon');
+		this.#playerIconForward.innerHTML = ICONS['forward'];
+
 		// TIMELINE
 		this.#playerTimeline.classList.add('player-timeline');
 
@@ -57,10 +73,6 @@ class EPlayer {
 		this.#playerTimeCurrent.textContent = '00:00';
 
 		// PLAYER PROGRESS
-		// this.#playerProgress.classList.add('player-progress');
-		// this.#playerProgressFilled.classList.add('player-progress-filled');
-		// this.#playerProgressButton.classList.add('player-progress-button');
-		// this.#playerProgressContainer.classList.add('player-progress-container');
 		this.#playerProgress.classList.add('player-progress');
 		this.#playerProgress.type = 'range';
 		this.#playerProgress.id = 'progress';
@@ -77,24 +89,6 @@ class EPlayer {
 		this.#playerTimeDuration.classList.add('player-time-duration');
 		this.#playerTimeDuration.textContent = '00:00';
 
-		// VOLUME CONTAINER
-		// this.#playerVolumeContainer.classList.add('player-volume-container');
-
-		// VOLUME CONTROL
-		// this.#playerVolume.classList.add('player-volume');
-		// this.#playerVolume.type = 'range';
-		// this.#playerVolume.id = 'volume';
-		// this.#playerVolume.min = '0';
-		// this.#playerVolume.max = '1';
-		// this.#playerVolume.value = '1';
-		// this.#playerVolume.step = '0.01';
-
-		// APPEND ELEMENTS
-		// this.#playerVolumeContainer.appendChild(this.#playerVolume);
-
-		// this.#playerProgressFilled.appendChild(this.#playerProgressButton);
-		// this.#playerProgress.appendChild(this.#playerProgressFilled);
-
 		this.#playerTimeline.appendChild(this.#playerTimeCurrent);
 		this.#playerTimeline.appendChild(this.#playerProgress);
 		this.#playerTimeline.appendChild(this.#playerTimeDuration);
@@ -102,27 +96,24 @@ class EPlayer {
 		this.#playerPlay.appendChild(this.#playerIconPlay);
 		this.#playerPlay.appendChild(this.#playerIconPause);
 
+		this.#playerRewind.appendChild(this.#playerIconRewind);
+		this.#playerForward.appendChild(this.#playerIconForward);
+
+		this.#playerControls.appendChild(this.#playerRewind);
 		this.#playerControls.appendChild(this.#playerPlay);
+		this.#playerControls.appendChild(this.#playerForward);
 		this.#playerControls.appendChild(this.#playerTimeline);
-		// this.#playerControls.appendChild(this.#playerVolumeContainer);
 
 		this.#player.appendChild(this.#playerControls);
 		this.#player.appendChild(this.#playerAudio);
 
 		document.querySelector(playerClass).appendChild(this.#player);
 
-		// this.playerContext = new AudioContext();
-		// this.playerTrack = this.playerContext.createMediaElementSource(this.playerAudio);
-
-		// Bridge the gap between gainNode and AudioContext so we can manipulate volume (gain)
-		// this.playerGain = this.playerContext.createGain();
-
-		// this.playerTrack.connect(this.playerGain).connect(this.playerContext.destination);
-
 		// EVENT LISTENERS
 		this.#playerPlay.addEventListener("click", this.playPause.bind(this));
+		this.#playerRewind.addEventListener("click", this.seek.bind(this));
+		this.#playerForward.addEventListener("click", this.seek.bind(this));
 
-		// Update progress bar and time values as audio plays
 		this.#playerAudio.addEventListener("timeupdate", (e) => {
 			if(!this.#playerMousedown) {
 				this.#progressUpdate();
@@ -130,27 +121,13 @@ class EPlayer {
 			}
 		});
 
-		// this.#playerAudio.addEventListener("ended", this.stop.bind(this));
 		this.#playerProgress.addEventListener("change", this.#scrub.bind(this));
 		this.#playerProgress.addEventListener("mousedown", () => (this.#playerMousedown = true));
 		this.#playerProgress.addEventListener("mouseup", () => (this.#playerMousedown = false));
 		this.#playerProgress.addEventListener('input', (e) => this.#playerProgress.style.setProperty('--value', e.target.value));
-
-		// this.#playerVolume.addEventListener("change", () => {
-		// 	// this.playerGain.gain.value = this.playerVolume.value;
-		// });
 	}
 
 	playPause() {
-		// check if context is in suspended state (autoplay policy)
-		// By default, browsers won't allow you to autoplay audio.
-		// You can override by finding the AudioContext state and resuming it after a user interaction like a "click" event.
-
-		// if(this.playerContext.state === "suspended") {
-		// 	this.playerContext.resume();
-		// }
-
-		// Play or pause track depending on state
 		if(this.#playerPlay.dataset.playing === "false") {
 			this.#playerAudio.play();
 			this.#playerPlay.dataset.playing = "true";
@@ -185,7 +162,6 @@ class EPlayer {
 		this.#playerIconPlay.classList.remove("player-hidden");
 		this.#playerProgress.value = '0';
 		this.#playerAudio.currentTime = 0;
-		// this.#playerAudio.duration = this.#playerAudio.duration;
 	}
 
 	load(file, type) {
@@ -198,7 +174,18 @@ class EPlayer {
 		this.#playerProgress.value = '0';
 		this.#progressUpdate();
 		this.#setTimes();
-		// console.log(this.#playerProgress.value);
+	}
+
+	seek(e) {
+		let seekSeconds = 0;
+		if(e.target) {
+			seekSeconds = parseInt(e.target.dataset.seek);
+		}
+		else {
+			seekSeconds = e;
+		}
+		console.log('SEEKING: ', seekSeconds);
+		this.#playerAudio.currentTime += seekSeconds;
 	}
 
 	#progressUpdate() {
