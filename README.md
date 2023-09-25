@@ -74,6 +74,7 @@ Available variables:
 | ---										| ---					  						| ---				|
 | *PLAYER WRAPPER VARIABLES*				| 												| 					|
 | --eplayer-background-color				| Player wrapper background color				| #FFFFFF			|
+| --eplayer-controls-gap					| Player controls spacing between buttons		| 4px				|
 | --eplayer-primary-color					| Player primary color							| #56B6C2			|
 | --eplayer-primary-color-hover				| Player primary color on hover					| #44AEBB			|
 | --eplayer-primary-fill-color				| Player primary fill color for icons			| #56B6C2			|
@@ -82,13 +83,19 @@ Available variables:
 | --eplayer-font							| Font for timestamp							| monospace			|
 | --eplayer-font-color						| Timestamp font color							| #849294			|
 | --eplayer-font-size						| Timestamp font size							| 0.8rem			|
-| --eplayer-play-background-color			| Play button background color					| transparent		|
 | --eplayer-radius							| Player wrapper radius	 						| 12px				|
 | *PLAY BUTTON VARIABLES*					| 	   		  			 						| 					|
-| --eplayer-play-background-color-hover		| Play button background color on hover			| transparent		|
-| --eplayer-play-border-radius				| Play button border radius	   	  				| 12px				|
-| --eplayer-play-height						| Play button height 							| 36px				|
-| --eplayer-play-padding					| Play button padding							| 0px				|
+| --eplayer-button-background-color			| Button background color						| transparent		|
+| --eplayer-button-background-color-hover	| Button background color on hover				| transparent		|
+| --eplayer-button-border-radius			| Button border radius	   	  					| 12px				|
+| --eplayer-button-height					| Button height 								| 36px				|
+| --eplayer-button-padding					| Button padding								| 0px				|
+| *SEEK BUTTON VARIABLES*					|												|					|
+| --eplayer-seek-background-color			| Rewind/Forward button background color		| transparent		|
+| --eplayer-seek-background-color-hover		| Rewind/Forward button background on hover		| transparent		|
+| --eplayer-seek-border-radius				| Rewind/Forward button border radius			| 12px				|
+| --eplayer-seek-height						| Rewind/Forward button height					| 24px				|
+| --eplayer-seek-padding					| Rewind/Forward button padding					| 0px				|
 | *PROGRESS BAR*							| 	   		  									| 					|
 | --eplayer-progress-background-color		| Progress bar background color					| #D6DBDB			|
 | --eplayer-progress-button-color			| Progress bar button color						| #56B6C2			|
