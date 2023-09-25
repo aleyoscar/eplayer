@@ -186,7 +186,7 @@ class EPlayer {
 		const playerSource = document.createElement('source');
 		playerSource.src = file;
 		playerSource.type = type;
-		this.#playerAudio.appendChild(playerSource);
+		this.#playerAudio.replaceChildren(playerSource);
 		this.#playerAudio.load();
 		this.#playerProgress.value = '0';
 		this.#progressUpdate();
