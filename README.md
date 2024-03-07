@@ -21,12 +21,12 @@ Add the stylesheet to your `<head>` element:
 <link rel="stylesheet" href="/eplayer/eplayer.css" />
 ```
 
-Specify a `<div>` element or similar with a unique class for the eplayer wrapper, the default class is `eplayer`. Place the element anywhere you would like the audio player to show. Currently only one (1) audio player is supported. Then add the `eplayer.js` script at the very end of your `<body>` tag:
+Specify a `<div>` element or similar with a unique class for the eplayer wrapper, the default class is `eplayer`. Place the element anywhere you would like the audio player to show. Set the `data-src` and `data-type` attribute if you would the source added when the page loads. Both are required, currently only one (1) source and only one (1) audio player are supported. Then add the `eplayer.js` script at the very end of your `<body>` tag:
 
 ```
 <body>
 	<!-- other html content -->
-	<div class="eplayer"></div>
+	<div class="eplayer" data-src="/sample.mp3" data-type="audio/mp3"></div>
 	<!-- other html content -->
 <script src="/eplayer/eplayer.js"></script>
 ```
@@ -43,6 +43,12 @@ The constructor will insert the audio element and other necessary html elements 
 
 ```
 const player = new EPlayer('custom-audio-player');
+```
+
+To change the audio source or control when the source is loaded use the `load("source", "type")` method.
+
+```
+player.load('/sample.mp3', 'audio/mp3');
 ```
 
 Also see [index.html](https://git.aleyoscar.com/emet/eplayer/src/branch/main/index.html) for an example.

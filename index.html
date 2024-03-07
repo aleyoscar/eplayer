@@ -42,13 +42,12 @@
 <body>
 
     <h1>ePlayer</h1>
-    <div class="eplayer"></div>
+    <div class="eplayer" data-src="/sample.mp3" data-type="audio/mp3"></div>
 
 <script src="/eplayer.js"></script>
 <script>
 	document.addEventListener('DOMContentLoaded', (event) => {
     	const player = new EPlayer();
-		player.load('/sample.mp3', 'audio/mp3');
 	});
 </script>
 </body>

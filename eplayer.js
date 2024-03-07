@@ -107,7 +107,12 @@ class EPlayer {
 		this.#player.appendChild(this.#playerControls);
 		this.#player.appendChild(this.#playerAudio);
 
-		document.querySelector(playerClass).appendChild(this.#player);
+		let playerDiv = document.querySelector(playerClass);
+		playerDiv.appendChild(this.#player);
+
+		if(playerDiv.dataset.src && playerDiv.dataset.type) {
+			this.load(playerDiv.dataset.src, playerDiv.dataset.type);
+		}
 
 		// EVENT LISTENERS
 		this.#playerPlay.addEventListener("click", this.playPause.bind(this));
