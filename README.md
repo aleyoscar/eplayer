@@ -11,7 +11,7 @@ ePlayer Javascript library for a custom, minimal, vanilla HTML5 Audio player
 
 ### Install
 
-Download the latest version from the [releases](https://git.aleyoscar.com/emet/eplayer/releases) page. Unzip and copy the eplayer folder into your web directory.
+Download from the [releases](https://git.aleyoscar.com/emet/eplayer/releases) page, or download the latest version directly from the repository [here](https://git.aleyoscar.com/emet/eplayer/raw/commit/b2b43fd5ddc0d0d78cc62b0fa12b6e73062319e4/current/eplayer.zip). Unzip and copy the eplayer folder into your web directory.
 
 ### Usage
 
