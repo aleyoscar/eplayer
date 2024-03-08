@@ -7,176 +7,170 @@ ICONS = {
 
 class EPlayer {
 
-	#player = document.createElement('div');
-	#playerControls = document.createElement('div');
-	#playerPlay = document.createElement('button');
-	#playerIconPlay = document.createElement('div');
-	#playerIconPause = document.createElement('div');
-	#playerRewind = document.createElement('div');
-	#playerIconRewind = document.createElement('div');
-	#playerForward = document.createElement('div');
-	#playerIconForward = document.createElement('div');
-	#playerTimeline = document.createElement('div');
-	#playerTimeCurrent = document.createElement('span');
-	#playerProgress = document.createElement('input');
-	#playerTimeDuration = document.createElement('span');
-	#playerAudio = document.createElement('audio');
-	#playerMousedown = false;
+	#eplayerControls = document.createElement('div');
+	#eplayerPlay = document.createElement('button');
+	#eplayerIconPlay = document.createElement('div');
+	#eplayerIconPause = document.createElement('div');
+	#eplayerRewind = document.createElement('div');
+	#eplayerIconRewind = document.createElement('div');
+	#eplayerForward = document.createElement('div');
+	#eplayerIconForward = document.createElement('div');
+	#eplayerTimeline = document.createElement('div');
+	#eplayerTimeCurrent = document.createElement('span');
+	#eplayerProgress = document.createElement('input');
+	#eplayerTimeDuration = document.createElement('span');
+	#eplayerAudio = document.createElement('audio');
+	#eplayerMousedown = false;
 
-	constructor(playerClass='.eplayer') {
-
-		// PLAYER DIV WRAPPER
-		this.#player.classList.add('player');
+	constructor(eplayerClass='eplayer') {
 
 		// PLAYER CONTROLS WRAPPER
-		this.#playerControls.classList.add('player-controls');
+		this.#eplayerControls.classList.add('eplayer-controls');
 
 		// PLAY BUTTON
-		this.#playerPlay.classList.add('player-play-btn');
-		this.#playerPlay.classList.add('player-icon-btn');
-		this.#playerPlay.role = 'button';
-		this.#playerPlay.dataset.playing = 'false';
+		this.#eplayerPlay.classList.add('eplayer-play-btn');
+		this.#eplayerPlay.classList.add('eplayer-icon-btn');
+		this.#eplayerPlay.role = 'button';
+		this.#eplayerPlay.dataset.playing = 'false';
 
 		// PLAY ICON
-		this.#playerIconPlay.classList.add('player-icon-play');
-		this.#playerIconPlay.classList.add('player-icon');
-		this.#playerIconPlay.innerHTML = ICONS['play'];
+		this.#eplayerIconPlay.classList.add('eplayer-icon-play');
+		this.#eplayerIconPlay.classList.add('eplayer-icon');
+		this.#eplayerIconPlay.innerHTML = ICONS['play'];
 
 		// PAUSE ICON
-		this.#playerIconPause.classList.add('player-icon-pause');
-		this.#playerIconPause.classList.add('player-icon');
-		this.#playerIconPause.classList.add('player-hidden');
-		this.#playerIconPause.innerHTML = ICONS['pause'];
+		this.#eplayerIconPause.classList.add('eplayer-icon-pause');
+		this.#eplayerIconPause.classList.add('eplayer-icon');
+		this.#eplayerIconPause.classList.add('eplayer-hidden');
+		this.#eplayerIconPause.innerHTML = ICONS['pause'];
 
 		// REWIND BUTTON
-		this.#playerRewind.classList.add('player-rewind-btn');
-		this.#playerRewind.classList.add('player-seek-btn');
-		this.#playerRewind.classList.add('player-icon-btn');
-		this.#playerRewind.dataset.seek = '-10';
-		this.#playerIconRewind.classList.add('player-icon');
-		this.#playerIconRewind.innerHTML = ICONS['rewind'];
+		this.#eplayerRewind.classList.add('eplayer-rewind-btn');
+		this.#eplayerRewind.classList.add('eplayer-seek-btn');
+		this.#eplayerRewind.classList.add('eplayer-icon-btn');
+		this.#eplayerRewind.dataset.seek = '-10';
+		this.#eplayerIconRewind.classList.add('eplayer-icon');
+		this.#eplayerIconRewind.innerHTML = ICONS['rewind'];
 
 		// FORWARD BUTTON
-		this.#playerForward.classList.add('player-forward-btn');
-		this.#playerForward.classList.add('player-seek-btn');
-		this.#playerForward.classList.add('player-icon-btn');
-		this.#playerForward.dataset.seek = '10';
-		this.#playerIconForward.classList.add('player-icon');
-		this.#playerIconForward.innerHTML = ICONS['forward'];
+		this.#eplayerForward.classList.add('eplayer-forward-btn');
+		this.#eplayerForward.classList.add('eplayer-seek-btn');
+		this.#eplayerForward.classList.add('eplayer-icon-btn');
+		this.#eplayerForward.dataset.seek = '10';
+		this.#eplayerIconForward.classList.add('eplayer-icon');
+		this.#eplayerIconForward.innerHTML = ICONS['forward'];
 
 		// TIMELINE
-		this.#playerTimeline.classList.add('player-timeline');
+		this.#eplayerTimeline.classList.add('eplayer-timeline');
 
 		// CURRENT TIME
-		this.#playerTimeCurrent.classList.add('player-time');
-		this.#playerTimeCurrent.classList.add('player-time-current');
-		this.#playerTimeCurrent.textContent = '00:00';
+		this.#eplayerTimeCurrent.classList.add('eplayer-time');
+		this.#eplayerTimeCurrent.classList.add('eplayer-time-current');
+		this.#eplayerTimeCurrent.textContent = '00:00';
 
 		// PLAYER PROGRESS
-		this.#playerProgress.classList.add('player-progress');
-		this.#playerProgress.type = 'range';
-		this.#playerProgress.id = 'progress';
-		this.#playerProgress.min = '0';
-		this.#playerProgress.max = '100';
-		this.#playerProgress.step = '1';
-		this.#playerProgress.value = '0';
-		this.#playerProgress.style.setProperty('--value', this.#playerProgress.value);
-		this.#playerProgress.style.setProperty('--min', this.#playerProgress.min);
-		this.#playerProgress.style.setProperty('--max', this.#playerProgress.max);
+		this.#eplayerProgress.classList.add('eplayer-progress');
+		this.#eplayerProgress.type = 'range';
+		this.#eplayerProgress.id = 'progress';
+		this.#eplayerProgress.min = '0';
+		this.#eplayerProgress.max = '100';
+		this.#eplayerProgress.step = '1';
+		this.#eplayerProgress.value = '0';
+		this.#eplayerProgress.style.setProperty('--value', this.#eplayerProgress.value);
+		this.#eplayerProgress.style.setProperty('--min', this.#eplayerProgress.min);
+		this.#eplayerProgress.style.setProperty('--max', this.#eplayerProgress.max);
 
 		// DURATION
-		this.#playerTimeDuration.classList.add('player-time');
-		this.#playerTimeDuration.classList.add('player-time-duration');
-		this.#playerTimeDuration.textContent = '00:00';
+		this.#eplayerTimeDuration.classList.add('eplayer-time');
+		this.#eplayerTimeDuration.classList.add('eplayer-time-duration');
+		this.#eplayerTimeDuration.textContent = '00:00';
 
-		this.#playerTimeline.appendChild(this.#playerTimeCurrent);
-		this.#playerTimeline.appendChild(this.#playerProgress);
-		this.#playerTimeline.appendChild(this.#playerTimeDuration);
+		this.#eplayerTimeline.appendChild(this.#eplayerTimeCurrent);
+		this.#eplayerTimeline.appendChild(this.#eplayerProgress);
+		this.#eplayerTimeline.appendChild(this.#eplayerTimeDuration);
 
-		this.#playerPlay.appendChild(this.#playerIconPlay);
-		this.#playerPlay.appendChild(this.#playerIconPause);
+		this.#eplayerPlay.appendChild(this.#eplayerIconPlay);
+		this.#eplayerPlay.appendChild(this.#eplayerIconPause);
 
-		this.#playerRewind.appendChild(this.#playerIconRewind);
-		this.#playerForward.appendChild(this.#playerIconForward);
+		this.#eplayerRewind.appendChild(this.#eplayerIconRewind);
+		this.#eplayerForward.appendChild(this.#eplayerIconForward);
 
-		this.#playerControls.appendChild(this.#playerRewind);
-		this.#playerControls.appendChild(this.#playerPlay);
-		this.#playerControls.appendChild(this.#playerForward);
-		this.#playerControls.appendChild(this.#playerTimeline);
+		this.#eplayerControls.appendChild(this.#eplayerRewind);
+		this.#eplayerControls.appendChild(this.#eplayerPlay);
+		this.#eplayerControls.appendChild(this.#eplayerForward);
 
-		this.#player.appendChild(this.#playerControls);
-		this.#player.appendChild(this.#playerAudio);
+		let eplayerDiv = document.querySelector("." + eplayerClass);
+		eplayerDiv.appendChild(this.#eplayerControls);
+		eplayerDiv.appendChild(this.#eplayerTimeline);
+		eplayerDiv.appendChild(this.#eplayerAudio);
 
-		let playerDiv = document.querySelector(playerClass);
-		playerDiv.appendChild(this.#player);
-
-		if(playerDiv.dataset.src && playerDiv.dataset.type) {
-			this.load(playerDiv.dataset.src, playerDiv.dataset.type);
+		if(eplayerDiv.dataset.src && eplayerDiv.dataset.type) {
+			this.load(eplayerDiv.dataset.src, eplayerDiv.dataset.type);
 		}
 
 		// EVENT LISTENERS
-		this.#playerPlay.addEventListener("click", this.playPause.bind(this));
-		this.#playerRewind.addEventListener("click", this.seek.bind(this));
-		this.#playerForward.addEventListener("click", this.seek.bind(this));
+		this.#eplayerPlay.addEventListener("click", this.playPause.bind(this));
+		this.#eplayerRewind.addEventListener("click", this.seek.bind(this));
+		this.#eplayerForward.addEventListener("click", this.seek.bind(this));
 
-		this.#playerAudio.addEventListener("timeupdate", (e) => {
-			if(!this.#playerMousedown) {
+		this.#eplayerAudio.addEventListener("timeupdate", (e) => {
+			if(!this.#eplayerMousedown) {
 				this.#progressUpdate();
 				this.#setTimes();
 			}
 		});
 
-		this.#playerProgress.addEventListener("change", this.#scrub.bind(this));
-		this.#playerProgress.addEventListener("mousedown", () => (this.#playerMousedown = true));
-		this.#playerProgress.addEventListener("mouseup", () => (this.#playerMousedown = false));
-		this.#playerProgress.addEventListener('input', (e) => this.#playerProgress.style.setProperty('--value', e.target.value));
+		this.#eplayerProgress.addEventListener("change", this.#scrub.bind(this));
+		this.#eplayerProgress.addEventListener("mousedown", () => (this.#eplayerMousedown = true));
+		this.#eplayerProgress.addEventListener("mouseup", () => (this.#eplayerMousedown = false));
+		this.#eplayerProgress.addEventListener('input', (e) => this.#eplayerProgress.style.setProperty('--value', e.target.value));
 	}
 
 	playPause() {
-		if(this.#playerPlay.dataset.playing === "false") {
-			this.#playerAudio.play();
-			this.#playerPlay.dataset.playing = "true";
-			this.#playerIconPlay.classList.add("player-hidden");
-			this.#playerIconPause.classList.remove("player-hidden");
-		} else if(this.#playerPlay.dataset.playing === "true") {
-			this.#playerAudio.pause();
-			this.#playerPlay.dataset.playing = "false";
-			this.#playerIconPause.classList.add("player-hidden");
-			this.#playerIconPlay.classList.remove("player-hidden");
+		if(this.#eplayerPlay.dataset.playing === "false") {
+			this.#eplayerAudio.play();
+			this.#eplayerPlay.dataset.playing = "true";
+			this.#eplayerIconPlay.classList.add("eplayer-hidden");
+			this.#eplayerIconPause.classList.remove("eplayer-hidden");
+		} else if(this.#eplayerPlay.dataset.playing === "true") {
+			this.#eplayerAudio.pause();
+			this.#eplayerPlay.dataset.playing = "false";
+			this.#eplayerIconPause.classList.add("eplayer-hidden");
+			this.#eplayerIconPlay.classList.remove("eplayer-hidden");
 		}
 	}
 
 	play() {
-		this.#playerAudio.play();
-		this.#playerPlay.dataset.playing = "true";
-		this.#playerIconPlay.classList.add("player-hidden");
-		this.#playerIconPause.classList.remove("player-hidden");
+		this.#eplayerAudio.play();
+		this.#eplayerPlay.dataset.playing = "true";
+		this.#eplayerIconPlay.classList.add("eplayer-hidden");
+		this.#eplayerIconPause.classList.remove("eplayer-hidden");
 	}
 
 	pause() {
-		this.#playerAudio.pause();
-		this.#playerPlay.dataset.playing = "false";
-		this.#playerIconPause.classList.add("player-hidden");
-		this.#playerIconPlay.classList.remove("player-hidden");
+		this.#eplayerAudio.pause();
+		this.#eplayerPlay.dataset.playing = "false";
+		this.#eplayerIconPause.classList.add("eplayer-hidden");
+		this.#eplayerIconPlay.classList.remove("eplayer-hidden");
 	}
 
 	stop() {
-		this.#playerAudio.pause();
-		this.#playerPlay.dataset.playing = "false";
-		this.#playerIconPause.classList.add("player-hidden");
-		this.#playerIconPlay.classList.remove("player-hidden");
-		this.#playerProgress.value = '0';
-		this.#playerAudio.currentTime = 0;
+		this.#eplayerAudio.pause();
+		this.#eplayerPlay.dataset.playing = "false";
+		this.#eplayerIconPause.classList.add("eplayer-hidden");
+		this.#eplayerIconPlay.classList.remove("eplayer-hidden");
+		this.#eplayerProgress.value = '0';
+		this.#eplayerAudio.currentTime = 0;
 	}
 
 	load(file, type) {
-		this.#playerAudio.textContent = '';
+		this.#eplayerAudio.textContent = '';
 		const playerSource = document.createElement('source');
 		playerSource.src = file;
 		playerSource.type = type;
-		this.#playerAudio.replaceChildren(playerSource);
-		this.#playerAudio.load();
-		this.#playerProgress.value = '0';
+		this.#eplayerAudio.replaceChildren(playerSource);
+		this.#eplayerAudio.load();
+		this.#eplayerProgress.value = '0';
 		this.#progressUpdate();
 		this.#setTimes();
 	}
@@ -189,28 +183,27 @@ class EPlayer {
 		else {
 			seekSeconds = e;
 		}
-		console.log('SEEKING: ', seekSeconds);
-		this.#playerAudio.currentTime += seekSeconds;
+		this.#eplayerAudio.currentTime += seekSeconds;
 	}
 
 	#progressUpdate() {
-		const percent = (this.#playerAudio.currentTime / this.#playerAudio.duration) * 100;
-		this.#playerProgress.value = percent ? percent : '0';
-		this.#playerProgress.style.setProperty('--value', this.#playerProgress.value);
+		const percent = (this.#eplayerAudio.currentTime / this.#eplayerAudio.duration) * 100;
+		this.#eplayerProgress.value = percent ? percent : '0';
+		this.#eplayerProgress.style.setProperty('--value', this.#eplayerProgress.value);
 	}
 
 	#setTimes() {
-		if(this.#playerAudio.duration) {
-			this.#playerTimeCurrent.textContent = new Date(this.#playerAudio.currentTime * 1000).toISOString().substr(14, 5);
-			this.#playerTimeDuration.textContent = new Date(this.#playerAudio.duration * 1000).toISOString().substr(14, 5);
+		if(this.#eplayerAudio.duration) {
+			this.#eplayerTimeCurrent.textContent = new Date(this.#eplayerAudio.currentTime * 1000).toISOString().substr(14, 5);
+			this.#eplayerTimeDuration.textContent = new Date(this.#eplayerAudio.duration * 1000).toISOString().substr(14, 5);
 		} else {
-			this.#playerTimeCurrent.textContent = "00:00";
-			this.#playerTimeDuration.textContent = "00:00";
+			this.#eplayerTimeCurrent.textContent = "00:00";
+			this.#eplayerTimeDuration.textContent = "00:00";
 		}
 	}
 
 	#scrub(e) {
 		const scrubTime = e.target.value / 100;
-		this.#playerAudio.currentTime = (this.#playerAudio.duration || 0) * scrubTime;
+		this.#eplayerAudio.currentTime = (this.#eplayerAudio.duration || 0) * scrubTime;
 	}
 }
