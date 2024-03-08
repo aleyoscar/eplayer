@@ -1,4 +1,14 @@
 
+<a name="v0.4.0"></a>
+## [v0.4.0](https://git.aleyoscar.com/emet/eplayer/compare/v0.3.0...v0.4.0)
+
+> 2024-03-08
+
+### Feat
+
+* 'player' to 'eplayer'. Added flex direction option
+
+
 <a name="v0.3.0"></a>
 ## [v0.3.0](https://git.aleyoscar.com/emet/eplayer/compare/v0.2.0...v0.3.0)
 

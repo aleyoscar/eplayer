@@ -74,11 +74,20 @@ In order to customize eplayer, simply override the root css variables in your ow
 }
 ```
 
+To change whether the controls are before, after, on top or below the timeline, change the `--eplayer-direction` variable to the proper flex direction. For example to place the controls below the timeline:
+
+```
+:root {
+	--eplayer-direction: column-reverse;
+}
+```
+
 Available variables:
 
 | Variable									| Description									| Default			|
 | ---										| ---					  						| ---				|
 | *PLAYER WRAPPER VARIABLES*				| 												| 					|
+| --eplayer-direction						| Player wrapper flex direction					| row				|
 | --eplayer-background-color				| Player wrapper background color				| #FFFFFF			|
 | --eplayer-controls-gap					| Player controls spacing between buttons		| 4px				|
 | --eplayer-primary-color					| Player primary color							| #56B6C2			|
