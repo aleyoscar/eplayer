@@ -1,4 +1,15 @@
 
+<a name="v0.4.1"></a>
+## [v0.4.1](https://git.aleyoscar.com/emet/eplayer/compare/v0.4.0...v0.4.1)
+
+> 2025-03-15
+
+### Fix
+
+* **core:** Stop player after reaching end of audio. Fixes [#8](https://git.aleyoscar.com/emet/eplayer/issues/8)
+* **core:** Stop player after loading new source
+
+
 <a name="v0.4.0"></a>
 ## [v0.4.0](https://git.aleyoscar.com/emet/eplayer/compare/v0.3.0...v0.4.0)
 
