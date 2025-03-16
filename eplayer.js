@@ -191,6 +191,7 @@ class EPlayer {
 		const percent = (this.#eplayerAudio.currentTime / this.#eplayerAudio.duration) * 100;
 		this.#eplayerProgress.value = percent ? percent : '0';
 		this.#eplayerProgress.style.setProperty('--value', this.#eplayerProgress.value);
+		if (percent > 99.9) this.stop();
 	}
 
 	#setTimes() {
