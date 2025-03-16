@@ -164,6 +164,7 @@ class EPlayer {
 	}
 
 	load(file, type) {
+		this.stop();
 		this.#eplayerAudio.textContent = '';
 		const playerSource = document.createElement('source');
 		playerSource.src = file;
