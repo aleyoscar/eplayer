@@ -8,6 +8,7 @@ ePlayer Javascript library for a custom, minimal, vanilla HTML5 Audio player
 - [Usage](#usage)
 - [Functions](#functions)
 - [Customization](#customization)
+- [Sources](#sources)
 
 ### Install
 
@@ -122,3 +123,8 @@ Available variables:
 | --eplayer-progress-color					| Progress bar progress color					| #56D6C2			|
 | --eplayer-progress-height					| Progress bar height							| 8px				|
 | --eplayer-progress-radius					| Progress bar radius							| 16px				|
+
+### Sources
+
+- Sample audio by [Airwolf89](https://freesound.org/people/Airwolf89/) from [freesound.org](https://freesound.org/s/346454/)
+- Icons from [Bootsrap Icons](https://icons.getbootstrap.com/)
