@@ -17,12 +17,19 @@ class EPlayer {
 	#eplayerIconRewind = document.createElement('div');
 	#eplayerForward = document.createElement('div');
 	#eplayerIconForward = document.createElement('div');
+	#eplayerAhead = document.createElement('div');
+	#eplayerAheadNum = document.createElement('div');
+	#eplayerIconAhead = document.createElement('div');
+	#eplayerBack = document.createElement('div');
+	#eplayerBackNum = document.createElement('div');
+	#eplayerIconBack = document.createElement('div');
 	#eplayerTimeline = document.createElement('div');
 	#eplayerTimeCurrent = document.createElement('span');
 	#eplayerProgress = document.createElement('input');
 	#eplayerTimeDuration = document.createElement('span');
 	#eplayerAudio = document.createElement('audio');
 	#eplayerMousedown = false;
+	#eplayerInterval = null;
 
 	constructor(eplayerClass='eplayer') {
 
@@ -48,19 +55,41 @@ class EPlayer {
 
 		// REWIND BUTTON
 		this.#eplayerRewind.classList.add('eplayer-rewind-btn');
-		this.#eplayerRewind.classList.add('eplayer-seek-btn');
+		this.#eplayerRewind.classList.add('eplayer-skim-btn');
 		this.#eplayerRewind.classList.add('eplayer-icon-btn');
-		this.#eplayerRewind.dataset.seek = '-10';
+		this.#eplayerRewind.dataset.seek = '-1';
 		this.#eplayerIconRewind.classList.add('eplayer-icon');
 		this.#eplayerIconRewind.innerHTML = ICONS['rewind'];
 
 		// FORWARD BUTTON
 		this.#eplayerForward.classList.add('eplayer-forward-btn');
-		this.#eplayerForward.classList.add('eplayer-seek-btn');
+		this.#eplayerForward.classList.add('eplayer-skim-btn');
 		this.#eplayerForward.classList.add('eplayer-icon-btn');
-		this.#eplayerForward.dataset.seek = '10';
+		this.#eplayerForward.dataset.seek = '1';
 		this.#eplayerIconForward.classList.add('eplayer-icon');
 		this.#eplayerIconForward.innerHTML = ICONS['forward'];
+
+		// AHEAD BUTTON
+		this.#eplayerAhead.classList.add('eplayer-ahead-btn');
+		this.#eplayerAhead.classList.add('eplayer-seek-btn');
+		this.#eplayerAhead.classList.add('eplayer-icon-btn');
+		this.#eplayerAhead.dataset.seek = '10';
+		this.#eplayerIconAhead.classList.add('eplayer-icon');
+		this.#eplayerIconAhead.innerHTML = ICONS['ahead'];
+		this.#eplayerAheadNum.classList.add('eplayer-ahead-btn-num');
+		this.#eplayerAheadNum.classList.add('eplayer-seek-btn-num');
+		this.#eplayerAheadNum.textContent = Math.abs(parseInt(this.#eplayerAhead.dataset.seek));
+
+		// BACK BUTTON
+		this.#eplayerBack.classList.add('eplayer-back-btn');
+		this.#eplayerBack.classList.add('eplayer-seek-btn');
+		this.#eplayerBack.classList.add('eplayer-icon-btn');
+		this.#eplayerBack.dataset.seek = '-10';
+		this.#eplayerIconBack.classList.add('eplayer-icon');
+		this.#eplayerIconBack.innerHTML = ICONS['back'];
+		this.#eplayerBackNum.classList.add('eplayer-back-btn-num');
+		this.#eplayerBackNum.classList.add('eplayer-seek-btn-num');
+		this.#eplayerBackNum.textContent = Math.abs(parseInt(this.#eplayerBack.dataset.seek));
 
 		// TIMELINE
 		this.#eplayerTimeline.classList.add('eplayer-timeline');
@@ -97,9 +126,16 @@ class EPlayer {
 		this.#eplayerRewind.appendChild(this.#eplayerIconRewind);
 		this.#eplayerForward.appendChild(this.#eplayerIconForward);
 
+		this.#eplayerAhead.appendChild(this.#eplayerIconAhead);
+		this.#eplayerAhead.appendChild(this.#eplayerAheadNum);
+		this.#eplayerBack.appendChild(this.#eplayerIconBack);
+		this.#eplayerBack.appendChild(this.#eplayerBackNum);
+
+		this.#eplayerControls.appendChild(this.#eplayerBack);
 		this.#eplayerControls.appendChild(this.#eplayerRewind);
 		this.#eplayerControls.appendChild(this.#eplayerPlay);
 		this.#eplayerControls.appendChild(this.#eplayerForward);
+		this.#eplayerControls.appendChild(this.#eplayerAhead);
 
 		let eplayerDiv = document.querySelector("." + eplayerClass);
 		eplayerDiv.appendChild(this.#eplayerControls);
@@ -112,8 +148,14 @@ class EPlayer {
 
 		// EVENT LISTENERS
 		this.#eplayerPlay.addEventListener("click", this.playPause.bind(this));
-		this.#eplayerRewind.addEventListener("click", this.seek.bind(this));
-		this.#eplayerForward.addEventListener("click", this.seek.bind(this));
+		this.#eplayerRewind.addEventListener("mousedown", this.#skim.bind(this));
+		this.#eplayerForward.addEventListener("mousedown", this.#skim.bind(this));
+		this.#eplayerRewind.addEventListener("mouseup", this.#stopSkim.bind(this));
+		this.#eplayerForward.addEventListener("mouseup", this.#stopSkim.bind(this));
+		this.#eplayerRewind.addEventListener("mouseleave", this.#stopSkim.bind(this));
+		this.#eplayerForward.addEventListener("mouseleave", this.#stopSkim.bind(this));
+		this.#eplayerAhead.addEventListener("click", this.seek.bind(this));
+		this.#eplayerBack.addEventListener("click", this.seek.bind(this));
 
 		this.#eplayerAudio.addEventListener("timeupdate", (e) => {
 			if(!this.#eplayerMousedown) {
@@ -187,6 +229,20 @@ class EPlayer {
 			seekSeconds = e;
 		}
 		this.#eplayerAudio.currentTime += seekSeconds;
+	}
+
+	#skim(e) {
+		let seekSeconds = 0;
+		if (e.target) {
+			seekSeconds = parseInt(e.target.dataset.seek);
+		}
+		this.#eplayerInterval = setInterval(() => {
+			this.#eplayerAudio.currentTime += seekSeconds;
+        }, 100);
+	}
+
+	#stopSkim(e) {
+		clearInterval(this.#eplayerInterval);
 	}
 
 	#progressUpdate() {
