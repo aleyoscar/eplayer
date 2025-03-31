@@ -63,6 +63,7 @@ Also see [index.html](https://git.aleyoscar.com/emet/eplayer/src/branch/main/ind
 | playPause()		| Toggles the audio to play or pause			| player.playPause()						|
 | stop()			| Stops the audio and sets the time to 00:00	| player.stop()								|
 | load(file, type)	| Specifies a file to load with the file's type	| player.load('/sample.mp3', 'audio/mp3')	|
+| seek(duration)	| Skips seconds ahead (+) or back (-)			| player.seek(-25)							|
 
 ### Customization
 
