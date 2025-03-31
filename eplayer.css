@@ -91,7 +91,7 @@
 	color: var(--eplayer-primary-fill-color);
 	display: flex;
 	font-family: var(--eplayer-font);
-	font-size: 70%;
+	font-size: 1vh;
 	height: 100%;
 	justify-content: center;
 	position: absolute;
