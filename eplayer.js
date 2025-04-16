@@ -30,8 +30,13 @@ class EPlayer {
 	#eplayerAudio = document.createElement('audio');
 	#eplayerMousedown = false;
 	#eplayerInterval = null;
+	#eplayerIcons = {};
+	#eplayerClass = '';
 
-	constructor(eplayerClass='eplayer') {
+	constructor({ eplayerClass = 'eplayer', eplayerIcons = {} } = {}) {
+		// REPLACE ICONS DICTIONARY WITH USER'S OWN ICONS
+		this.#eplayerIcons = eplayerIcons;
+		this.#eplayerClass = eplayerClass;
 
 		// PLAYER CONTROLS WRAPPER
 		this.#eplayerControls.classList.add('eplayer-controls');
