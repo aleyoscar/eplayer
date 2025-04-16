@@ -1,10 +1,10 @@
 ICONS = {
-	"play": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="eplayer-icon eplayer-icon-play" viewBox="0 0 16 16"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>',
-	"pause": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="eplayer-icon eplayer-icon-pause" viewBox="0 0 16 16"><path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/></svg>',
-	"rewind": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="eplayer-icon eplayer-icon-rewind" viewBox="0 0 16 16"><path d="M8.404 7.304a.802.802 0 0 0 0 1.392l6.363 3.692c.52.302 1.233-.043 1.233-.696V4.308c0-.653-.713-.998-1.233-.696z"/><path d="M.404 7.304a.802.802 0 0 0 0 1.392l6.363 3.692c.52.302 1.233-.043 1.233-.696V4.308c0-.653-.713-.998-1.233-.696z"/></svg>',
-	"forward": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="eplayer-icon eplayer-icon-forward" viewBox="0 0 16 16"><path d="M7.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C.713 12.69 0 12.345 0 11.692V4.308c0-.653.713-.998 1.233-.696z"/><path d="M15.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C8.713 12.69 8 12.345 8 11.692V4.308c0-.653.713-.998 1.233-.696z"/></svg>',
-	"ahead": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="eplayer-icon eplayer-icon-ahead" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/></svg>',
-	"back": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="eplayer-icon eplayer-icon-back" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/></svg>'
+	"play": '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>',
+	"pause": '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>',
+	"rewind": '<path d="M8.404 7.304a.802.802 0 0 0 0 1.392l6.363 3.692c.52.302 1.233-.043 1.233-.696V4.308c0-.653-.713-.998-1.233-.696z"/><path d="M.404 7.304a.802.802 0 0 0 0 1.392l6.363 3.692c.52.302 1.233-.043 1.233-.696V4.308c0-.653-.713-.998-1.233-.696z"/>',
+	"forward": '<path d="M7.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C.713 12.69 0 12.345 0 11.692V4.308c0-.653.713-.998 1.233-.696z"/><path d="M15.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C8.713 12.69 8 12.345 8 11.692V4.308c0-.653.713-.998 1.233-.696z"/>',
+	"ahead": '<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>',
+	"back": '<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>'
 }
 
 class EPlayer {
@@ -45,13 +45,13 @@ class EPlayer {
 		// PLAY ICON
 		this.#eplayerIconPlay.classList.add('eplayer-icon-play');
 		this.#eplayerIconPlay.classList.add('eplayer-icon');
-		this.#eplayerIconPlay.innerHTML = ICONS['play'];
+		this.#eplayerIconPlay.innerHTML = this.#addIcon('play');
 
 		// PAUSE ICON
 		this.#eplayerIconPause.classList.add('eplayer-icon-pause');
 		this.#eplayerIconPause.classList.add('eplayer-icon');
 		this.#eplayerIconPause.classList.add('eplayer-hidden');
-		this.#eplayerIconPause.innerHTML = ICONS['pause'];
+		this.#eplayerIconPause.innerHTML = this.#addIcon('pause');
 
 		// REWIND BUTTON
 		this.#eplayerRewind.classList.add('eplayer-rewind-btn');
@@ -59,7 +59,7 @@ class EPlayer {
 		this.#eplayerRewind.classList.add('eplayer-icon-btn');
 		this.#eplayerRewind.dataset.seek = '-1';
 		this.#eplayerIconRewind.classList.add('eplayer-icon');
-		this.#eplayerIconRewind.innerHTML = ICONS['rewind'];
+		this.#eplayerIconRewind.innerHTML = this.#addIcon('rewind');
 
 		// FORWARD BUTTON
 		this.#eplayerForward.classList.add('eplayer-forward-btn');
@@ -67,7 +67,7 @@ class EPlayer {
 		this.#eplayerForward.classList.add('eplayer-icon-btn');
 		this.#eplayerForward.dataset.seek = '1';
 		this.#eplayerIconForward.classList.add('eplayer-icon');
-		this.#eplayerIconForward.innerHTML = ICONS['forward'];
+		this.#eplayerIconForward.innerHTML = this.#addIcon('forward');
 
 		// AHEAD BUTTON
 		this.#eplayerAhead.classList.add('eplayer-ahead-btn');
@@ -75,7 +75,7 @@ class EPlayer {
 		this.#eplayerAhead.classList.add('eplayer-icon-btn');
 		this.#eplayerAhead.dataset.seek = '10';
 		this.#eplayerIconAhead.classList.add('eplayer-icon');
-		this.#eplayerIconAhead.innerHTML = ICONS['ahead'];
+		this.#eplayerIconAhead.innerHTML = this.#addIcon('ahead');
 		this.#eplayerAheadNum.classList.add('eplayer-ahead-btn-num');
 		this.#eplayerAheadNum.classList.add('eplayer-seek-btn-num');
 		this.#eplayerAheadNum.textContent = Math.abs(parseInt(this.#eplayerAhead.dataset.seek));
@@ -86,7 +86,7 @@ class EPlayer {
 		this.#eplayerBack.classList.add('eplayer-icon-btn');
 		this.#eplayerBack.dataset.seek = '-10';
 		this.#eplayerIconBack.classList.add('eplayer-icon');
-		this.#eplayerIconBack.innerHTML = ICONS['back'];
+		this.#eplayerIconBack.innerHTML = this.#addIcon('back');
 		this.#eplayerBackNum.classList.add('eplayer-back-btn-num');
 		this.#eplayerBackNum.classList.add('eplayer-seek-btn-num');
 		this.#eplayerBackNum.textContent = Math.abs(parseInt(this.#eplayerBack.dataset.seek));
@@ -137,7 +137,7 @@ class EPlayer {
 		this.#eplayerControls.appendChild(this.#eplayerForward);
 		this.#eplayerControls.appendChild(this.#eplayerAhead);
 
-		let eplayerDiv = document.querySelector("." + eplayerClass);
+		let eplayerDiv = document.querySelector("." + this.#eplayerClass);
 		eplayerDiv.appendChild(this.#eplayerControls);
 		eplayerDiv.appendChild(this.#eplayerTimeline);
 		eplayerDiv.appendChild(this.#eplayerAudio);
@@ -271,5 +271,15 @@ class EPlayer {
 	#scrub(e) {
 		const scrubTime = e.target.value / 100;
 		this.#eplayerAudio.currentTime = (this.#eplayerAudio.duration || 0) * scrubTime;
+	}
+
+	#addIcon(icon) {
+		let base = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="eplayer-icon eplayer-icon-';
+		for (let key in this.#eplayerIcons) {
+			if (key == icon) {
+				return base + icon + '">' + this.#eplayerIcons[icon] + '</svg>';
+			}
+		}
+		return base + icon + '">' + ICONS[icon] + '</svg>';
 	}
 }
