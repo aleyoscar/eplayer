@@ -1,5 +1,7 @@
 # eplayer
 
+>v1.0.0
+
 ePlayer Javascript library for a custom, minimal, vanilla HTML5 Audio player
 
 ### Contents
