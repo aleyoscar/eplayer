@@ -1,6 +1,6 @@
 # eplayer
 
->v1.0.0
+> v1.0.0
 
 ePlayer Javascript library for a custom, minimal, vanilla HTML5 Audio player
 
@@ -14,7 +14,7 @@ ePlayer Javascript library for a custom, minimal, vanilla HTML5 Audio player
 
 ### Install
 
-Download from the [releases](https://git.aleyoscar.com/emet/eplayer/releases) page, then unzip and copy eplayer.css and eplayer.js into your web directory.
+Download from the [releases](https://github.com/aleyoscar/eplayer/releases) page, then unzip and copy eplayer.css and eplayer.js into your web directory.
 
 ### Usage
 
