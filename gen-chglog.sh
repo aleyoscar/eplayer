@@ -19,5 +19,8 @@ else
 	echo "Creating Tag $1"
 	git tag $1 -F $TAG_FILE
 
+	echo "Creating release eplayer_$1.zip"
+	zip -qr releases/eplayer_$1.zip eplayer.css eplayer.js
+
 	echo "Remember to use 'git push && git push origin --tags'"
 fi
