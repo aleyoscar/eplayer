@@ -12,7 +12,7 @@ ePlayer Javascript library for a custom, minimal, vanilla HTML5 Audio player
 
 ### Install
 
-Download from the [releases](https://git.aleyoscar.com/emet/eplayer/releases) page, or download the latest version directly from the repository [here](https://git.aleyoscar.com/emet/eplayer/raw/commit/b2b43fd5ddc0d0d78cc62b0fa12b6e73062319e4/current/eplayer.zip). Unzip and copy the eplayer folder into your web directory.
+Download from the [releases](https://git.aleyoscar.com/emet/eplayer/releases) page, then unzip and copy eplayer.css and eplayer.js into your web directory.
 
 ### Usage
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 The constructor will insert the audio element and other necessary html elements into your div. To specify a custom class for the eplayer wrapper, simply pass it into the constructor.
 
 ```
-const player = new EPlayer('custom-audio-player');
+const player = new EPlayer({eplayerClass: 'custom-audio-player'});
 ```
 
 To change the audio source or control when the source is loaded use the `load("source", "type")` method.
@@ -52,7 +52,7 @@ To change the audio source or control when the source is loaded use the `load("s
 player.load('/sample.mp3', 'audio/mp3');
 ```
 
-Also see [index.html](https://git.aleyoscar.com/emet/eplayer/src/branch/main/index.html) for an example.
+Also see `index.html` for an example.
 
 ### Functions
 
@@ -67,7 +67,7 @@ Also see [index.html](https://git.aleyoscar.com/emet/eplayer/src/branch/main/ind
 
 ### Customization
 
-In order to customize eplayer, simply override the root css variables in your own css file or your `<styles>` element in your html:
+In order to customize the look of eplayer, simply override the root css variables in your own css file or your `<styles>` element in your html:
 
 ```
 :root {
@@ -92,14 +92,14 @@ Available variables:
 | --eplayer-direction						| Player wrapper flex direction					| row				|
 | --eplayer-background-color				| Player wrapper background color				| #FFFFFF			|
 | --eplayer-controls-gap					| Player controls spacing between buttons		| 4px				|
+| --eplayer-font							| Font for timestamp							| monospace			|
+| --eplayer-font-color						| Timestamp font color							| #849294			|
+| --eplayer-font-size						| Timestamp font size							| 0.8rem			|
+| --eplayer-padding							| Player wrapper padding						| 12px				|
 | --eplayer-primary-color					| Player primary color							| #56B6C2			|
 | --eplayer-primary-color-hover				| Player primary color on hover					| #44AEBB			|
 | --eplayer-primary-fill-color				| Player primary fill color for icons			| #56B6C2			|
 | --eplayer-primary-fill-color-hover		| Player primary fill color for icons on hover	| #44AEBB			|
-| --eplayer-padding							| Player wrapper padding						| 12px				|
-| --eplayer-font							| Font for timestamp							| monospace			|
-| --eplayer-font-color						| Timestamp font color							| #849294			|
-| --eplayer-font-size						| Timestamp font size							| 0.8rem			|
 | --eplayer-radius							| Player wrapper radius	 						| 12px				|
 | *PLAY BUTTON VARIABLES*					| 	   		  			 						| 					|
 | --eplayer-button-background-color			| Button background color						| transparent		|
@@ -124,6 +124,28 @@ Available variables:
 | --eplayer-progress-color					| Progress bar progress color					| #56D6C2			|
 | --eplayer-progress-height					| Progress bar height							| 8px				|
 | --eplayer-progress-radius					| Progress bar radius							| 16px				|
+
+To add your own custom icons, pass the inside of your svg icon string into the constructor with the name of the icon as the key.
+
+```
+const player = new EPlayer({
+	eplayerIcons: {
+		'play': '<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>'
+</svg>'
+	}
+});
+```
+
+Icon names:
+
+| Button		| Key		|
+| ---			| ---		|
+| Play			| 'play'	|
+| Pause			| 'pause'	|
+| Rewind		| 'rewind'	|
+| Fast-Forward	| 'forward'	|
+| Skip Ahead	| 'ahead'	|
+| Go Back		| 'back'	|
 
 ### Sources
 
